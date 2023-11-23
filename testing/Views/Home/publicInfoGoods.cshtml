@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<testing.Models.AllocationOfGood>
+
+<h1>Active Disasters and Money Allocated to it</h1>
+<h2>Money Available: R @ViewBag.moneyLeft</h2>
+<h2>Goods Available: @ViewBag.goodsLeft</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Disaster.DisasterLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfAllocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfItemsAllocated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonationOfGoodsCategory.DonationCategoryName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disaster.DisasterLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfAllocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfItemsAllocated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonationOfGoodsCategory.DonationCategoryName)
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="publicInfoMoney" type="button" class="btn w-100 mt-4" style="background-color:#AA1AED">View Money Allocated to Disasters</a>
+<div>
+    <a asp-action="Index" class="text-white">Back to Home</a>
+</div>

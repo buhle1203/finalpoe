@@ -1,0 +1,68 @@
+﻿@model testing.Models.DonationOfGood
+
+@{
+    ViewData["Title"] = "MakeAGoodsDonation";
+}
+
+<h1>MakeAGoodsDonation</h1>
+
+<h4>DonationOfGood</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="MakeAGoodsDonation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DonationId" class="control-label"></label>
+                <input asp-for="DonationId" disabled class="form-control" />
+                <span asp-validation-for="DonationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonationDate" class="control-label">Donation Date</label>
+                <input asp-for="DonationDate" class="form-control" />
+                <span asp-validation-for="DonationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonationNumberOfItems" class="control-label">Donation Number Of Items</label>
+                <input asp-for="DonationNumberOfItems" class="form-control" />
+                <span asp-validation-for="DonationNumberOfItems" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label">Category Of Goods</label>
+                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.DonationCategoryId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonationDescription" class="control-label">Donation Description</label>
+                <input asp-for="DonationDescription" class="form-control" />
+                <span asp-validation-for="DonationDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonationDonor" class="control-label">Donation Donor</label>
+                <input asp-for="DonationDonor" class="form-control" id="donationdonor"/>
+                <span asp-validation-for="DonationDonor" class="text-danger"></span>
+                <div class="checkbox">
+                    <label>@Html.CheckBox("Anonymous", false, new { @class = "form-check-input", onchange = "AnonymousUser(this)" })&nbsp; Remain Anonymous</label>
+                </div>
+                <script type="text/javascript">
+                    function AnonymousUser(e) {
+                        if (e.checked) {
+                            document.getElementById("donationdonor").value = 'Remain Anonymous';
+                        }
+                        document.getElementById("donationdonor").disabled = e.checked;
+                    }
+                </script>
+            </div>
+           <div class="form-group">
+                <input type="submit" value="Make Donation" class="btn w-50" style="background-color:#AA1AED" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="text-white">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

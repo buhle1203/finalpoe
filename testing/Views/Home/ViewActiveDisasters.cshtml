@@ -1,0 +1,60 @@
+﻿@model IEnumerable<testing.Models.ActiveDisaster>
+
+@{
+    ViewData["Title"] = "ViewActiveDisasters";
+}
+
+<h1>View Active Disasters</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DisasterLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisasterDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisasterStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisasterEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisasterAidTypeWanted)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisasterLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisasterDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisasterStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisasterEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisasterAidTypeWanted)
+            </td>
+            <td hidden>
+                <a asp-action="Edit" asp-route-id="@item.DisasterId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DisasterId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DisasterId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" class="text-white">Back to Home</a>
+</div>

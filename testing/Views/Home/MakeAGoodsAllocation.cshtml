@@ -1,0 +1,48 @@
+@model testing.Models.AllocationOfGood;
+
+@{
+    ViewData["Title"] = "MakeAGoodsAllocation";
+}
+
+<h1>Make Goods Allocation</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="MakeAGoodsAllocation">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="DateOfAllocation" class="control-label">Date Of Allocation</label>
+                <input asp-for="DateOfAllocation" class="form-control" />
+                <span asp-validation-for="DateOfAllocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfItemsAllocated" class="control-label">Number Of Items Allocated</label>
+                <input asp-for="NumberOfItemsAllocated" class="form-control" />
+                <span asp-validation-for="NumberOfItemsAllocated" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <label asp-for="DonationOfGoodsCategoryId" class="control-label">Category Of Goods</label>
+                <select asp-for="DonationOfGoodsCategoryId" class ="form-control" asp-items="ViewBag.DonationCategoryId"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DisasterId" class="control-label">Disaster</label>
+                <select asp-for="DisasterId" class ="form-control" asp-items="ViewBag.DisasterId"></select>
+            </div>
+           
+           <div class="form-group">
+                <input type="submit" value="Make Allocation" class="btn w-50" style="background-color:#bf20f0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="text-white">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

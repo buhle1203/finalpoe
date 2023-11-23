@@ -1,0 +1,127 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor Accessor;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @{
+        if (@Accessor.HttpContext.Request.Cookies["Authenticated"] != null && @Accessor.HttpContext.Request.Cookies["Authenticated"].ToString().Equals("True"))
+        {
+            <h2>Money Available: R @ViewBag.moneyLeft</h2>
+            <div class="container">
+                <div class="row justify-content-around">
+
+                    <div class="card m-5 w-25 p-3 mb-2 text-dark " style="box-shadow: #bf20f0 0px 5px 15px;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Allocate Money To Disasters<a asp-action="MakeAMoneyAllocation" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card m-5 w-25 p-3 mb-2 text-dark " style="box-shadow: #bf20f0 0px 5px 15px;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Allocate Goods To Disasters<a asp-action="MakeAGoodsAllocation" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card m-5 w-25 p-3 mb-2 text-dark " style="box-shadow: #bf20f0 0px 5px 15px;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Purchase Goods<a asp-action="MakeAPurchase" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card m-5 w-25 p-3 mb-2 text-dark " style="box-shadow: #bf20f0 0px 5px 15px;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Money Donations Available<a asp-action="ViewDonationsOfMoney" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card m-5 w-25 p-3 mb-2  text-dark" style="box-shadow: #bf20f0 0px 5px 15px;">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Goods Donations Available <a style="margin:15px" asp-action="ViewDonationsOfGoods" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card m-5 w-25 p-3 mb-2  text-dark" style="box-shadow: #bf20f0 0px 5px 15px;">
+
+                        <div class="card-body">
+                            <p class="card-text">
+                                Disasters that are active <a style="margin:15px" asp-action="ViewActiveDisasters" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card m-5 w-25 p-3 mb-2  text-dark" style="box-shadow: #bf20f0 0px 5px 15px;">
+
+                        <div class="card-body">
+                            <p class="card-text">
+                                Add a new Categories<a style="margin:15px" asp-action="AddANewCategoryOfGoods" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card m-5 w-25 p-3 mb-2  text-dark" style="box-shadow: #bf20f0 0px 5px 15px;">
+
+                        <div class="card-body">
+                            <p class="card-text">
+                                Add a new Donation of money <a style="margin:15px" asp-action="MakeAMoneyDonation" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card m-5 w-25 p-3 mb-2  text-dark" style="box-shadow: #bf20f0 0px 5px 15px;">
+
+                        <div class="card-body">
+                            <p class="card-text">
+                                Add a new Donation of goods<a style="margin:15px" asp-action="MakeAGoodsDonation" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card m-5 w-25 p-3 mb-2  text-dark" style="box-shadow: #bf20f0 0px 5px 15px;">
+
+                        <div class="card-body">
+                            <p class="card-text">
+                                Add a new Disaster <a style="margin:15px" asp-action="AddANewActiveDisaster" class="btn btn-outline-secondary">Here</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+        else
+        {
+            <a class="btn w-100" style="background-color:#AA1AED" asp-action="AuthorisedUsersLogin">Login</a>
+        }
+    }
+    <a asp-action="publicInfoMoney" type="button" class="btn w-100 mt-4" style="background-color:#bf20f0">View Money Allocated to Disasters</a>
+    <h2>What we do</h2>.
+    <p>
+        The Disaster Alleviation Foundation is a non‐profit organisation. The foundation’s mission is to provide practical aid during disasters. We
+        receive donations from various sources and need a system to track what is available and what has
+        been dispatched to help with which disaster.
+        Donations can be made by individuals, companies, other organisations, and even governments.
+        Donations can be goods (clothes, non‐perishable foods, etc.) or monetary. Donors can choose to
+        remain anonymous.
+        The Disaster Alleviation Foundation does track what happens with the donations. For
+        example, goods can be dispatched to help with a disaster. And money can either be paid out (for
+        example, to a local community organisation) or used to purchase goods that are then dispatched
+        to a disaster area.
+        The Disaster Alleviation Foundation has transparency as one of its core values. It is important to
+        them that the collected data is accurate and always available to the right stakeholders.
+    </p>
+
+</div>

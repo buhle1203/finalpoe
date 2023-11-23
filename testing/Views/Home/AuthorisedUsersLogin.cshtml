@@ -1,0 +1,39 @@
+﻿@model testing.Models.AuthorisedUser
+
+@{
+    ViewData["Title"] = "AuthorisedUsersLogin";
+}
+
+<h1>Authorised Users Login</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AuthorisedUsersLogin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="UserNames" class="control-label">User Name</label>
+                <input asp-for="UserNames" class="form-control" />
+                <span asp-validation-for="UserNames" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserPassword" class="control-label">User Password</label>
+                <input asp-for="UserPassword" class="form-control" type="password"/>
+                <span asp-validation-for="UserPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn w-50" style="background-color:#bf20f0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AuthorisedUsersRegister" class="text-white">Create account?</a>
+    <a asp-action="Index" class="text-white">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

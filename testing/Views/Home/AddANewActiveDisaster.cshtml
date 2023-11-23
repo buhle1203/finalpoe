@@ -1,0 +1,54 @@
+﻿@model testing.Models.ActiveDisaster
+
+@{
+    ViewData["Title"] = "AddANewActiveDisaster";
+}
+
+<h1>Add A New Active Disaster</h1>
+
+<h4>ActiveDisaster</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddANewActiveDisaster">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+            <div class="form-group">
+                <label asp-for="DisasterLocation" class="control-label">Disaster Location</label>
+                <input asp-for="DisasterLocation" class="form-control" />
+                <span asp-validation-for="DisasterLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisasterDescription" class="control-label">Disaster Description</label>
+                <input asp-for="DisasterDescription" class="form-control" />
+                <span asp-validation-for="DisasterDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisasterStartDate" class="control-label">Disaster Start Date</label>
+                <input asp-for="DisasterStartDate" class="form-control" />
+                <span asp-validation-for="DisasterStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisasterEndDate" class="control-label">Disaster End Date</label>
+                <input asp-for="DisasterEndDate" class="form-control" />
+                <span asp-validation-for="DisasterEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DisasterAidTypeWanted" class="control-label">Disaster Aid Type Wanted</label>
+                <input asp-for="DisasterAidTypeWanted" class="form-control" />
+                <span asp-validation-for="DisasterAidTypeWanted" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Disaster" class="btn w-50" style="background-color:#bf20f0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="text-white">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

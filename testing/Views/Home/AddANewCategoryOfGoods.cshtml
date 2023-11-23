@@ -1,0 +1,33 @@
+﻿@model testing.Models.DonationOfGoodsCategory
+
+@{
+    ViewData["Title"] = "AddANewCategoryOfGoods";
+}
+
+<h1>Add A New Category Of Goods</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddANewCategoryOfGoods">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+            <div class="form-group">
+                <label asp-for="DonationCategoryName" class="control-label">Donation Category Name</label>
+                <input asp-for="DonationCategoryName" class="form-control" />
+                <span asp-validation-for="DonationCategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Category" class="btn w-50" style="background-color:#bf20f0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="text-white">Back to Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
