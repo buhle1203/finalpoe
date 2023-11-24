@@ -229,7 +229,7 @@ namespace testing.Controllers
         [HttpPost]
         public IActionResult AddANewActiveDisaster(ActiveDisaster disaster)
         {
-
+            //created 
             disaster.DisasterId = Guid.NewGuid();
             if(!ModelState.IsValid){
                 return View(disaster);
