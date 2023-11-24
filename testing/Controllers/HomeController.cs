@@ -228,6 +228,7 @@ namespace testing.Controllers
         [HttpPost]
         public IActionResult AddANewActiveDisaster(ActiveDisaster disaster)
         {
+
             disaster.DisasterId = Guid.NewGuid();
             if(!ModelState.IsValid){
                 return View(disaster);
