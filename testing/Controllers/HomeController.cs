@@ -136,6 +136,7 @@ namespace testing.Controllers
         [HttpPost]
         public IActionResult MakeAMoneyDonation(DonationsOfMoney money)
         {
+
             money.DonationId = Guid.NewGuid();
             if(!ModelState.IsValid){
                 return View(money);
