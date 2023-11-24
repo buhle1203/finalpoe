@@ -130,6 +130,7 @@ namespace testing.Controllers
 
         public IActionResult MakeAMoneyDonation()
         {
+            //created a make money donation
             return View("MakeAMoneyDonation");
         }
 
