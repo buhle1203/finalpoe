@@ -116,6 +116,7 @@ namespace testing.Controllers
         [HttpPost]
         public IActionResult MakeAMoneyAllocation(AllocationOfMoney money)
         {
+            // total allocation of goods
             money.AllocationId = Guid.NewGuid();
             if (!ModelState.IsValid)
             {
