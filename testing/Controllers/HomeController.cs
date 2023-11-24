@@ -274,6 +274,7 @@ namespace testing.Controllers
 
         public IActionResult ViewActiveDisasters()
         {
+            // created an active disaster
             IEnumerable<ActiveDisaster> disasters = contextDB.ActiveDisasters;
             return View(disasters);
         }
