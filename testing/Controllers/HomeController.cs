@@ -185,6 +185,7 @@ namespace testing.Controllers
         [HttpPost]
         public IActionResult MakeAPurchase(PurchasesOfGood purchase)
         {
+            // capture purchase of goods
             purchase.PurchaseId = Guid.NewGuid();
             if (!ModelState.IsValid)
             {
