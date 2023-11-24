@@ -61,22 +61,22 @@
 //            Assert.IsTrue(result);
 //        }
 
-//        public bool TotalGreaterThanThreshold(List<decimal> donations, decimal threshold)
-//        {
-//            decimal totalDonation = donations.Sum();
-//            return totalDonation > threshold;
-//        }
+        public bool TotalGreaterThanThreshold(List<decimal> donations, decimal threshold)
+        {
+            decimal totalDonation = donations.Sum();
+            return totalDonation > threshold;
+        }
 
-//        public bool GoodsSufficient(Dictionary<string, decimal> goodsAvailable, decimal threshold)
-//        {
-//            decimal totalGoods = goodsAvailable.Values.Sum();
-//            return totalGoods > threshold;
-//        }
+        public bool GoodsSufficient(Dictionary<string, decimal> goodsAvailable, decimal threshold)
 
-//        public bool IsAllocationMoneySufficient(Dictionary<string, decimal> allocatedMoney, decimal availableMoney)
-//        {
-//            decimal totalAllocatedMoney = allocatedMoney.Values.Sum();
-//            return totalAllocatedMoney <= availableMoney;
-//        }
-//    }
-//}
+{
+            decimal totalGoods = goodsAvailable.Values.Sum();
+            return totalGoods > threshold;
+        }
+
+        {
+            decimal totalAllocatedMoney = allocatedMoney.Values.Sum();
+           return totalAllocatedMoney <= availableMoney;
+       }
+    }
+}
